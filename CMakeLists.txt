@@ -1,9 +1,15 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.10)
 
 project(Task1)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_library(func_shared SHARED include/func.cpp)
-add_executable(improved_task src/main.cpp)
-target_link_libraries (func_shared PUBLIC include)
+add_executable(improved_task)
+target_sources(improved_task 
+    PRIVATE
+    src/main.cpp
+)
+
+add_library(func_shared SHARED include/func.cpp include/func.h)
+
+target_link_libraries (improved_task PUBLIC func_shared)
