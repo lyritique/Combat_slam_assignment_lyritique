@@ -11,5 +11,5 @@ target_sources(improved_task
 )
 
 add_library(func_shared SHARED include/func.cpp include/func.h)
-
+target_include_directories(func_shared PUBLIC include)
 target_link_libraries (improved_task PUBLIC func_shared)
